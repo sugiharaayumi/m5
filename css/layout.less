@@ -1,0 +1,135 @@
+@fontcolor:#000000;
+@maincolor: #005789;
+@subcolor:#ffffff;
+@hovercolor: #63c6ff;
+@mobidivice:768px;
+@sm: 576px;
+@md:768px;
+@lg:992px;
+@xl:1200px;
+@xxl:1400px;
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+
+body {
+    /* 先套用 Noto Sans TC 這個 思源黑體 */
+    font-family: 'Noto Sans TC', '微軟正黑體', sans-serif;
+}
+.mophone {
+    color: @maincolor;
+}
+
+@media (min-width:@mobidivice) {
+    .mophone {
+        color: #ff334d;
+    }
+}
+/* 調整頭部主選單 */
+nav.navbar{
+    height: 70px;
+    max-height: 100px;
+    background-color: @maincolor;
+    position: fixed;
+    font-family: 'Noto Sans TC';
+    padding-top: 0;
+    padding-bottom: 0;
+    //調整手機瀏覽選單logo大小
+    .navbar__brand img {
+        max-height: 100%;
+        margin-left: 15px;
+    }
+    //調整手機版漢堡線顏色
+    .navbar-toggler span{
+        background: @subcolor;
+    }
+    //小尺寸瀏覽主選單調整
+    .navbar-collapse {
+        background: rgb(80, 80, 80, 0.8);
+        color:@subcolor;
+        ul.nav a.nav-link{
+            color: @subcolor;
+            padding-left: 1.6rem;
+        }
+        li.navbar-nav__dropdown {
+            a.nav-link.active {
+                padding-left: 2.3rem;
+                color: @hovercolor;
+            }
+            a.nav-link:before{
+                left: 0.2rem;
+                transition: left 0.5s;
+            }
+            a.nav-link.active:before {
+                left: 1rem;
+            }
+        }
+
+    }
+    //大尺寸瀏覽子選單設定
+    >.dropdown-menu-scroll{
+        max-height: 99vh;
+    }
+    ul.nav a.nav-link{
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .nav-link:hover,
+    .nav-link.active{
+        color: @hovercolor;
+    }
+    ul.nav a.nav-link {
+        border-bottom: 2px solid transparent;
+    }
+    .dropdown-menu-scroll li .nav-link:hover,
+    .dropdown-menu-scroll li .nav-link.active{
+            border-bottom: 2px solid @hovercolor;
+    }
+    .navbar-nav>li>.nav-link:before {
+        display: block;
+        position: absolute;
+        top: 0.73rem;
+        left: -0.15rem;
+        content: "";
+        background: url(../images/hoveicon.png);
+        background-repeat: no-repeat;
+        width: 16px;
+        height: 16px;
+        opacity: 0;
+        transition: opacity .8s;
+    }
+    .navbar-nav>li>.nav-link:hover:before{
+        opacity: 1;
+    }
+    .navbar-nav>li>.nav-link:after{
+            background-color: transparent;
+    }
+}
+@media (min-width:@lg) {
+        nav.navbar {
+        height: 100px;
+        .navbar-collapse{
+            background-color: transparent;
+        }
+    }
+
+}
+
+
+
+section.homeAboutList,
+.carousel-control-prev,
+.carousel-control-next,
+.carousel-indicators,
+ul.hotKey {
+    display: none;
+}
+#carouselBanner {
+    background:@subcolor;
+    padding: 15px;
+    margin-top: 70px;
+}
+
+@media (min-width:@lg) {
+    #carouselBanner {
+        margin-top: 100px;
+    }
+}

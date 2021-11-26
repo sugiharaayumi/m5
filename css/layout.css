@@ -1,0 +1,111 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+body {
+  /* 先套用 Noto Sans TC 這個 思源黑體 */
+  font-family: 'Noto Sans TC', '微軟正黑體', sans-serif;
+}
+.mophone {
+  color: #005789;
+}
+@media (min-width: 768px) {
+  .mophone {
+    color: #ff334d;
+  }
+}
+/* 調整頭部主選單 */
+nav.navbar {
+  height: 70px;
+  max-height: 100px;
+  background-color: #005789;
+  position: fixed;
+  font-family: 'Noto Sans TC';
+  padding-top: 0;
+  padding-bottom: 0;
+}
+nav.navbar .navbar__brand img {
+  max-height: 100%;
+  margin-left: 15px;
+}
+nav.navbar .navbar-toggler span {
+  background: #ffffff;
+}
+nav.navbar .navbar-collapse {
+  background: #505050;
+  color: #ffffff;
+}
+nav.navbar .navbar-collapse ul.nav a.nav-link {
+  color: #ffffff;
+  padding-left: 1.6rem;
+}
+nav.navbar .navbar-collapse li.navbar-nav__dropdown a.nav-link.active {
+  padding-left: 2.3rem;
+  color: #63c6ff;
+}
+nav.navbar .navbar-collapse li.navbar-nav__dropdown a.nav-link:before {
+  left: 0.2rem;
+  transition: left 0.5s;
+}
+nav.navbar .navbar-collapse li.navbar-nav__dropdown a.nav-link.active:before {
+  left: 1rem;
+}
+nav.navbar > .dropdown-menu-scroll {
+  max-height: 99vh;
+}
+nav.navbar ul.nav a.nav-link {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+nav.navbar .nav-link:hover,
+nav.navbar .nav-link.active {
+  color: #63c6ff;
+}
+nav.navbar ul.nav a.nav-link {
+  border-bottom: 2px solid transparent;
+}
+nav.navbar .dropdown-menu-scroll li .nav-link:hover,
+nav.navbar .dropdown-menu-scroll li .nav-link.active {
+  border-bottom: 2px solid #63c6ff;
+}
+nav.navbar .navbar-nav > li > .nav-link:before {
+  display: block;
+  position: absolute;
+  top: 0.73rem;
+  left: -0.15rem;
+  content: "";
+  background: url(../images/hoveicon.png);
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+  opacity: 0;
+  transition: opacity 0.8s;
+}
+nav.navbar .navbar-nav > li > .nav-link:hover:before {
+  opacity: 1;
+}
+nav.navbar .navbar-nav > li > .nav-link:after {
+  background-color: transparent;
+}
+@media (min-width: 992px) {
+  nav.navbar {
+    height: 100px;
+  }
+  nav.navbar .navbar-collapse {
+    background-color: transparent;
+  }
+}
+section.homeAboutList,
+.carousel-control-prev,
+.carousel-control-next,
+.carousel-indicators,
+ul.hotKey {
+  display: none;
+}
+#carouselBanner {
+  background: #ffffff;
+  padding: 15px;
+  margin-top: 70px;
+}
+@media (min-width: 992px) {
+  #carouselBanner {
+    margin-top: 100px;
+  }
+}
