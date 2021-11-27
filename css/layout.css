@@ -1,4 +1,18 @@
 @import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+:root {
+  font-size: 16px;
+}
+section.homeAboutList,
+.carousel-control-prev,
+.carousel-control-next,
+.carousel-indicators,
+ul.hotKey,
+footer {
+  display: none;
+}
+a:link {
+  text-decoration: none;
+}
 body {
   /* 先套用 Noto Sans TC 這個 思源黑體 */
   font-family: 'Noto Sans TC', '微軟正黑體', sans-serif;
@@ -54,10 +68,6 @@ nav.navbar ul.nav a.nav-link {
   padding-left: 1rem;
   padding-right: 1rem;
 }
-nav.navbar .nav-link:hover,
-nav.navbar .nav-link.active {
-  color: #63c6ff;
-}
 nav.navbar ul.nav a.nav-link {
   border-bottom: 2px solid transparent;
 }
@@ -91,21 +101,125 @@ nav.navbar .navbar-nav > li > .nav-link:after {
   nav.navbar .navbar-collapse {
     background-color: transparent;
   }
-}
-section.homeAboutList,
-.carousel-control-prev,
-.carousel-control-next,
-.carousel-indicators,
-ul.hotKey {
-  display: none;
+  nav.navbar .nav-link:hover,
+  nav.navbar .nav-link.active {
+    color: #63c6ff;
+  }
 }
 #carouselBanner {
   background: #ffffff;
-  padding: 15px;
+  padding: 15px 15px 0;
   margin-top: 70px;
+}
+.carousel-item img {
+  width: 100%;
 }
 @media (min-width: 992px) {
   #carouselBanner {
     margin-top: 100px;
+  }
+}
+.homeNewsList {
+  background: url('/images/draw.png') no-repeat;
+  background-size: 170%;
+  background-position: -240px -15px;
+}
+.homeNewsList .page-title.mb-3 h4 {
+  display: block;
+  width: 210px;
+  height: 29px;
+  background: url('/images/huodong_title.png');
+  color: transparent;
+}
+.homeNewsList .page-title__title:after {
+  display: none;
+}
+.homeNewsList .index-news {
+  justify-content: center;
+}
+.homeNewsList .index-news .news-box__img {
+  height: 100%;
+  position: relative;
+}
+.homeNewsList div.news-box__img::after {
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: 0;
+  display: block;
+  content: "";
+  width: 70px;
+  height: 70px;
+  background: url('/images/plusicon.png') no-repeat;
+  background-size: contain;
+  opacity: 0.7;
+  transition: opacity 0.8s;
+}
+.homeNewsList .news-box__bottom {
+  flex-direction: column;
+  justify-content: center;
+  height: 55px;
+  overflow: hidden;
+}
+.homeNewsList .news-box__bottom .news-box__date {
+  background-color: transparent;
+  width: 100%;
+  color: #000000;
+  display: flex;
+  flex-direction: row;
+  justify-self: start;
+  font-size: 1rem;
+  height: unset;
+}
+.homeNewsList .news-box__bottom .news-box__date::after {
+  content: '日';
+}
+.homeNewsList .news-box__bottom .news-box__date small {
+  color: #000000;
+  font-size: 1rem;
+  order: -1;
+}
+.homeNewsList .news-box__bottom .news-box__content {
+  padding: unset;
+}
+.homeNewsList .news-box__bottom .news-box__content__title * {
+  padding: unset;
+  font-size: 1rem;
+  text-decoration: none;
+  color: #000000;
+}
+.homeNewsList .news-box__bottom p.news-box__content__p {
+  display: none;
+}
+.homeNewsList .news-box:hover .news-box__content__title span,
+.homeNewsList .news-box:hover .news-box__date *,
+.homeNewsList .news-box:hover .news-box__date {
+  color: #63c6ff;
+  text-decoration: none;
+}
+.homeNewsList .news-box:hover div.news-box__img::after {
+  opacity: 1;
+}
+@media (min-width: 768px) {
+  .homeNewsList {
+    background: url('/images/draw.png') no-repeat;
+    background-size: contain;
+    background-position: 0 -25px;
+  }
+  .homeNewsList div.news-box__img::after {
+    width: 40px;
+    height: 40px;
+  }
+}
+@media (min-width: 992px) {
+  .homeNewsList div.news-box__img::after {
+    width: 60px;
+    height: 60px;
+  }
+}
+@media (min-width: 1200px) {
+  .homeNewsList div.news-box__img::after {
+    width: 70px;
+    height: 70px;
   }
 }
