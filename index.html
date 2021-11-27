@@ -205,7 +205,6 @@
 
         </nav>
     </header>
-
     <div id="carouselBanner" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselBanner" data-slide-to="0" class="'active'"></li>
@@ -227,58 +226,10 @@
 
     </div>
 
-    <style>
-        .homeDataList .homeDataListInner {
-            display: flex;
-        }
-        
-        @media(max-width:767px) {
-            .homeDataList .col-md-6 {
-                order: 0 !important;
-            }
-            .homeAboutList .col-md-6 {
-                order: 0 !important;
-            }
-            .homeDataList .homeDataListInner {
-                display: block;
-            }
-        }
-    </style>
-
     <main>
         <!-- Page Content -->
-        <section class="py-5 homeAboutList">
-            <div class="row mx-0 py-3 align-items-center d-flex">
-                <div class="col-md-6 col-lg-7 px-0" style="order: 2">
-                    <img src="https://m5.hocom.tw/Content/web/layout30/img/1_1.png" alt="" class="wow bounceInRight img-fluid" style="visibility: visible; animation-name: bounceInRight;">
-                </div>
-                <div class="col-md-6 col-lg-5 mb-3 mb-md-0" style="order: 1">
-                    <div class="container">
-                        <div class="wow fadeInDown page-title align-items-start pl-md-5" data-wow-duration="2s" style="visibility: visible; animation-duration: 2s; animation-name: fadeInDown;">
-                            <h4 class="page-title__title">關於東海岸</h4>
-                            <p class="py-3">
-
-                            </p>
-
-                            <a href="/h/about?key=97kqk&amp;cont=15168">
-                                <button class="btn btn-primary">
-                                    <span>繼續閱讀</span>
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
-
-
-
-
-
-        <section class="py-5 homeNewsList">
+        <section class="py-5 homeAboutList" style="display: none;"></section>
+        <section class="py-5 homeNewsList container-sm">
             <div class="container">
                 <div class="page-title mb-3">
                     <h4 class="page-title__title text-center">最新消息</h4>
@@ -288,7 +239,7 @@
                         <figure class="news-box  wow fadeInDown" style="visibility: visible; animation-name: fadeInDown;">
                             <a href="NewsInfo?key=97kqk&amp;cont=15170">
                                 <div class="news-box__img">
-                                    <img class="img-fluid" src="https://hocom.tw/Uploads/ClinicNews/1000668_d01a90ca-ebe3-4e2c-8607-d09b054117f1.png" alt="">
+                                    <img class="img-fluid" src="https://m5.hocom.tw/Uploads/ClinicNews/1000668_0ee358d4-6b2c-4044-8f4e-da925f9f6975.png" alt="">
                                 </div>
                                 <div class="news-box__bottom">
                                     <div class="news-box__date">
@@ -313,7 +264,7 @@
                         <figure class="news-box  wow fadeInDown" style="visibility: visible; animation-name: fadeInDown;">
                             <a href="NewsInfo?key=97kqk&amp;cont=15169">
                                 <div class="news-box__img">
-                                    <img class="img-fluid" src="https://hocom.tw/Uploads/ClinicNews/1000668_b5a4f5c7-785a-4f35-bc36-3d5662da801d.png" alt="">
+                                    <img class="img-fluid" src="https://m5.hocom.tw/Uploads/ClinicNews/1000668_681b807b-7b76-479a-b0be-e7c31c0cf8ff.png" alt="">
                                 </div>
                                 <div class="news-box__bottom">
                                     <div class="news-box__date">
@@ -338,7 +289,7 @@
                         <figure class="news-box  wow fadeInDown" style="visibility: visible; animation-name: fadeInDown;">
                             <a href="NewsInfo?key=97kqk&amp;cont=15166">
                                 <div class="news-box__img">
-                                    <img class="img-fluid" src="https://hocom.tw/Uploads/ClinicNews/1000668_47bed4cb-4deb-42be-990a-bfb49c2d3cf7.png" alt="">
+                                    <img class="img-fluid" src="https://m5.hocom.tw/Uploads/ClinicNews/1000668_55151285-7f87-4901-9285-a2fcb4ceee6c.png" alt="">
                                 </div>
                                 <div class="news-box__bottom">
                                     <div class="news-box__date">
@@ -363,12 +314,44 @@
                 </div>
             </div>
         </section>
-
-
     </main>
     <input id="navId" name="navId" type="hidden" value="1">
+    <script>
+        if ($('#navId').val() == "1") {
+            $('#b3').addClass('b3');
+            $('#b4').addClass('b4');
+            $('#b5').addClass('b5');
+            $('#b6').addClass('b6');
+            $('body').css("display", "flex");
+            $('body').css("flexWrap", "wrap");
+            $('#b3,#b4,#b5,#b6').css("display", "block");
+            var Utils = {
+                q: function(query) {
+                    if (document.querySelectorAll) { // ie8支持
+                        var res = document.querySelectorAll(query)
+                    } else {
+                        var d = document
+                        a = d.styleSheets[0] || d.createStyleSheet()
+                        a.addRule(query, 'f:b')
+                        for (var l = d.all, b = 0, c = [], f = l.length; b < f; b++) {
+                            l[b].currentStyle.f && c.push(l[b])
+                        }
+                        a.removeRule(0)
+                        var res = c
+                    }
+                    return res
+                }
+            }
 
-
+            var lazy = Utils.q('[data-src]')
+            for (var i = 0; i < lazy.length; i++) {
+                var source = lazy[i].getAttribute('data-src')
+                var img = new Image()
+                img.src = source
+                lazy[i].insertBefore(img, lazy[i].firstChild)
+            }
+        }
+    </script>
 
     <script>
         var isBannerScale = true
@@ -388,93 +371,19 @@
             }, 1000);
         });
     </script>
-    <style>
-        @media screen and (max-width:768px) {
-            .forcefullwidth_wrapper_tp_banner {
-                opacity: 0;
-            }
-        }
-    </style>
-
-
     <script>
         var sec = 3 * 1000
     </script>
 
-
-
-    <script>
-        //截圖開始
-        function screenShotStart() {
-            if ($("#layoutId").val() == 25 || $("#layoutId").val() == 32) {
-                $("#header").after('<img id="takePicImg" src="' + $("#firstAdPath").val() + '" style="width:100%;margin-top:100px;" />');
-            }
-            if ($("#layoutId").val() == 19) {
-                $(".footerMap,iframe").hide();
-            }
-            if ($("#layoutId").val() == 18) {
-                $(".navbar").after('<img id="takePicImg" src="' + $("#firstAdPath").val() + '" style="width:100%;" />');
-                $(".footerMap,iframe").hide();
-                $(".rev_slider_wrapper").hide();
-            }
-            if ($("#layoutId").val() == 26) {
-                $("#header").after('<img id="takePicImg" src="' + $("#firstAdPath").val() + '" style="width:100%;" />');
-                $(".slider-area").hide();
-            }
-            if ($("#layoutId").val() == 5 || $("#layoutId").val() == 9 || $("#footerMap").length > 0) {
-                $("#footerMap").hide();
-            }
-        }
-
-        //截圖結束
-        function screenShotEnd() {
-            if ($("#layoutId").val() == 25 || $("#layoutId").val() == 32) {
-                $(document).find("#takePicImg").remove();
-            }
-            if ($("#layoutId").val() == 19) {
-                $(".footerMap,iframe").show();
-            }
-
-            if ($("#layoutId").val() == 18) {
-                $(document).find("#takePicImg").remove();
-                $(".footerMap,iframe").show();
-                $(".rev_slider_wrapper").show();
-            }
-
-            if ($("#layoutId").val() == 26) {
-                $(document).find("#takePicImg").remove();
-                $(".slider-area").show();
-            }
-
-            if ($("#layoutId").val() == 5 || $("#layoutId").val() == 9 || $("#footerMap").length > 0) {
-                $("#footerMap").show();
-            }
-        }
-    </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <button id="js-goTopBtn" href="#js-header" class="goTop-btn btn-link d-none">
+    <!-- <button id="js-goTopBtn" href="#js-header" class="goTop-btn btn-link d-none">
         <i class="fa fa-angle-double-up"></i>
-    </button>
+    </button> -->
 
 
 
 
 
-    <footer class="py-5">
+    <!-- <footer class="py-5">
         <div class="footer-top mb-3 pt-5">
             <div class="container">
                 <div class="footer-top__item addr">
@@ -504,17 +413,8 @@
             </div>
         </div>
 
-    </footer>
+    </footer> -->
 
-
-
-
-
-    <ul class="hotKey" style="bottom: 48px;">
-        <li class="tel" onclick="location.href = 'tel: '">
-            <i class="fa fa-phone" aria-hidden="true" style="margin-right:5px;"></i>撥打電話
-        </li>
-    </ul>
 
 
     <!-- jquery.min.js -->
@@ -605,116 +505,51 @@
             }
         });
     </script>
-
-
     <script>
-        //商品加購項目
-        $(document).ready(function() {
-            $('.product-tab>div').zoom({
-                on: 'mouseover',
-                duration: 0
-            });
-            /*
-            $('#prodectTab1').zoom({ on: 'mouseover', duration: 0 });
-            $('#prodectTab2').zoom({ on: 'mouseover', duration: 0 });
-            $('#prodectTab3').zoom({ on: 'mouseover', duration: 0 });
-            */
-            if ($('.owl-carousel>.item').length <= 1) {
-                $('.owl-carousel').show();
-            } else {
-                var count600 = 3;
-                var count1000 = 5;
-                if ($('.owl-carousel>.item').length < 3) {
-                    count600 = 1
-                    count1000 = 1
-                }
-                if ($('.owl-carousel>.item').length < 5) {
-                    count1000 = 1
-                }
-                $('.owl-carousel').owlCarousel({
-                    loop: true,
-                    margin: 10,
-                    nav: true,
-                    navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-                    dots: false,
-                    autoplay: true,
-                    responsive: {
-                        0: {
-                            items: 1
-                        },
-                        600: {
-                            items: count600
-                        },
-                        1000: {
-                            items: count1000
-                        }
-                    }
-                })
-            }
+        new WOW().init();
+        //首頁最新消息
+        //$('#portfolio.newsList .col-sm-4 ').addClass('col-sm-6');
+        //$('#portfolio.newsList .col-sm-4 ').removeClass('col-sm-4');*/
+        //內頁左選單
+        //$('#sidebar').removeClass('col-md-3 col-lg-3');
+        //$('#sidebar').addClass('col-md-2');
+        //$('#sidebar+section').removeClass('col-md-9 col-lg-9');
+        //首頁調整最新消息
+        $('.index-news>.col-12').removeClass('col-md-6 col-lg-3').addClass('col-md-4');
+        $('body > main').css('width', '100%');
+        //內頁上方圖示換圖
+        /*$('.pageTopBg img').attr("src", "https://web.hocom.tw/ckfinder/connector?command=Proxy&amp;type=Images&amp;fileName=image_about(3).jpg");
+        // $('.pageTopBg img').css("display", "block");*/
+        // if ($('#navId').val() == "3") {
+        //     $('.pageTopBg img').attr("src", "https://web.hocom.tw/ckfinder/connector?command=Proxy&amp;type=Images&amp;fileName=page_kv_1.jpg")
+        //     $('.pageTopBg img').css("display", "block");
+        // }
+        // if ($('#navId').val() == "2") {
+        //     $('.pageTopBg img').attr("src", "https://web.hocom.tw/ckfinder/connector?command=Proxy&amp;type=Images&amp;fileName=page_kv_2.jpg")
+        //     $('.pageTopBg img').css("display", "block");
+        // }
+        // if ($('#navId').val() == "4") {
 
-        });
-    </script>
-    <script type="text/javascript">
-        //相簿
-        $(document).ready(function() {
-            if ($('[data-fancybox="images"]').length > 0) {
-                $(document).find('[data-fancybox="images"]').fancybox({
-                    thumbs: {
-                        autoStart: true,
-                        axis: 'x'
-                    }
-                })
-            }
+        //     $('.pageTopBg img').attr("src", "https://web.hocom.tw/ckfinder/connector?command=Proxy&amp;type=Images&amp;fileName=page_kv_3.jpg")
+        //     $('.pageTopBg img').css("display", "block");
+        // }
+        // if ($('#navId').val() == "18") {
 
+        //     $('.pageTopBg img').attr("src", "https://web.hocom.tw/ckfinder/connector?command=Proxy&amp;type=Images&amp;fileName=page_kv_4.jpg")
+        //     $('.pageTopBg img').css("display", "block");
+        // }
+        // if ($('#navId').val() == "5") {
 
-        });
+        //     $('.pageTopBg img').attr("src", "https://web.hocom.tw/ckfinder/connector?command=Proxy&amp;type=Images&amp;fileName=page_kv_5.jpg")
+        //     $('.pageTopBg img').css("display", "block");
+        // }
+        // if ($('#navId').val() == "10") {
+
+        //     $('.pageTopBg img').attr("src", "https://web.hocom.tw/ckfinder/connector?command=Proxy&amp;type=Images&amp;fileName=page_kv_6.jpg")
+        //     $('.pageTopBg img').css("display", "block");
+        // }
     </script>
 
-
-
-
-
-
-    <div class="CookieAlert" style="position: fixed; width: 100%; padding: 8px 2%; left: 0px; bottom: 0px; background-color: rgba(74, 81, 78, 0.9); color: rgb(255, 255, 255); text-align: center; line-height: 18px; z-index: 900; font-size: 14px;" data-cookie="IsRead">
-        為提供您最佳個人化且即時的服務，本網站透過使用"Cookies"記錄與存取您的瀏覽使用訊息。當您使用本網站，即表示您同意Cookies技術支援。
-        <a href="/web/Home/CookiePrivacyPolicy" target="_blank" style="color:#00e3e3;">Learn more</a>
-        <span class="closeCABtn" style="background: #fff; display: inline-block; width: 100px; color: #2f2f2f; margin-left: 20px; cursor: pointer; padding:5px; border-radius:.25em" data-cookie="IsRead">接受並關閉</span>
-    </div>
-
-    <script>
-        $(document).ready(function() {
-            //所有網站Cookie使用通知
-            $('.CookieAlert').each(function() {
-                if (getCookie($(this).data("cookie")) == "") {
-                    $(this).fadeIn(200);
-                }
-            });
-            $(".closeCABtn").click(function() {
-                setCookie($(this).data("cookie"), "true", 180);
-                $(this).closest(".CookieAlert").fadeOut(200);
-            });
-
-            var caHeight = 0;
-            if ($('.CookieAlert').is(':visible')) {
-                caHeight = $('.CookieAlert').height();
-            };
-            var hotkeyHeight = (caHeight + 10) + "px";
-            $('.hotKey').css('bottom', hotkeyHeight);
-            $(window).resize(function() {
-                if ($('.CookieAlert').is(':visible')) {
-                    caHeight = $('.CookieAlert').height();
-                    hotkeyHeight = (caHeight + 20) + "px";
-                    $('.hotKey').css('bottom', hotkeyHeight);
-                } else {
-                    $('.hotKey').css('bottom', '10px');
-                }
-            });
-        });
-    </script>
-
-
-    <iframe id="redeviation-bs-sidebar" class="notranslate" aria-hidden="true" data-theme="default" data-pos="left"></iframe>
-    <div id="redeviation-bs-indicator" data-theme="default" class="redeviation-bs-fullHeight" style="height: 100%; top: 0%;"></div>
 </body>
 
 </html>
