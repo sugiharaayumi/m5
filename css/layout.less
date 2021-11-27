@@ -1,3 +1,4 @@
+:root{font-size: 16px;}
 @fontcolor:#000000;
 @maincolor: #005789;
 @subcolor:#ffffff;
@@ -9,7 +10,18 @@
 @xl:1200px;
 @xxl:1400px;
 @import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
-
+//版位調整不顯示
+section.homeAboutList,
+.carousel-control-prev,
+.carousel-control-next,
+.carousel-indicators,
+ul.hotKey,
+footer {
+    display: none;
+}
+a:link{
+    text-decoration: none;
+}
 body {
     /* 先套用 Noto Sans TC 這個 思源黑體 */
     font-family: 'Noto Sans TC', '微軟正黑體', sans-serif;
@@ -72,10 +84,7 @@ nav.navbar{
         padding-left: 1rem;
         padding-right: 1rem;
     }
-    .nav-link:hover,
-    .nav-link.active{
-        color: @hovercolor;
-    }
+
     ul.nav a.nav-link {
         border-bottom: 2px solid transparent;
     }
@@ -105,31 +114,143 @@ nav.navbar{
 }
 @media (min-width:@lg) {
         nav.navbar {
-        height: 100px;
-        .navbar-collapse{
-            background-color: transparent;
-        }
+            height: 100px;
+            .navbar-collapse{
+                background-color: transparent;
+            }
+            .nav-link:hover,
+            .nav-link.active {
+                color: @hovercolor;
+            }
     }
 
 }
-
-
-
-section.homeAboutList,
-.carousel-control-prev,
-.carousel-control-next,
-.carousel-indicators,
-ul.hotKey {
-    display: none;
-}
+//調整輪播
 #carouselBanner {
     background:@subcolor;
-    padding: 15px;
+    padding: 15px 15px 0;
     margin-top: 70px;
 }
-
+.carousel-item img {
+    width: 100%;
+}
 @media (min-width:@lg) {
     #carouselBanner {
         margin-top: 100px;
     }
 }
+//調整最新消息
+.homeNewsList{
+    background: url('/images/draw.png') no-repeat;
+    background-size: 170%;
+    background-position: -240px -15px;
+    .page-title.mb-3 h4 {
+        display: block;
+        width: 210px;
+        height: 29px;
+        background: url('/images/huodong_title.png');
+        color: transparent;
+    }
+    .page-title__title:after{
+        display: none;
+    }
+    .index-news{
+        justify-content: center;
+        .news-box__img{
+            height: 100%;
+            position: relative;
+        }
+    }
+    div.news-box__img::after{
+        position: absolute;
+        z-index: 3;
+        right: 0;
+        bottom: 0;
+        display: block;
+        content: "";
+        width: 70px;
+        height: 70px;
+        background:url('/images/plusicon.png')no-repeat;
+        background-size: contain;
+        opacity: 0.7;
+        transition: opacity 0.8s;
+    }
+
+    //調整最新消息
+    .news-box__bottom{
+        flex-direction: column;
+        justify-content: center;
+        height: 55px;
+        overflow: hidden;
+        //日期
+        .news-box__date{
+            background-color: transparent;
+            width: 100%;
+            color: @fontcolor;
+            display: flex;
+            flex-direction: row;
+            justify-self: start;
+            font-size: 1rem;
+            height: unset;
+        }
+        .news-box__date::after{
+            content: '日';
+        }
+        .news-box__date small {
+            color: @fontcolor;
+            font-size: 1rem;
+            order: -1;
+        }
+        .news-box__content{
+            padding: unset;
+        }
+        //文章標題
+        .news-box__content__title *{
+            padding: unset;
+            font-size: 1rem;
+            text-decoration: none;
+            color: @fontcolor;
+        }
+        p.news-box__content__p{
+            display: none;
+        }
+    }
+    .news-box:hover .news-box__content__title span,
+    .news-box:hover .news-box__date *,
+    .news-box:hover .news-box__date {
+        color: @hovercolor;
+        text-decoration: none;
+    }
+    .news-box:hover div.news-box__img::after {
+            opacity: 1;
+        }
+
+}
+@media (min-width:@md) {
+    .homeNewsList {
+        background: url('/images/draw.png') no-repeat;
+        background-size: contain;
+        background-position: 0 -25px;
+        div.news-box__img::after {
+            width: 40px;
+            height: 40px;
+        }
+    }
+}
+@media (min-width:@lg) {
+    .homeNewsList {
+        div.news-box__img::after {
+            width: 60px;
+            height: 60px;
+        }
+    }
+}
+@media (min-width:@xl) {
+    .homeNewsList {
+        div.news-box__img::after {
+            width: 70px;
+            height: 70px;
+        }
+    }
+}
+
