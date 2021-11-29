@@ -253,4 +253,98 @@ nav.navbar{
         }
     }
 }
+//首頁主內容wrap
+.indexcontent {
+    width: 100%;
+}
+//龜組的首頁各區塊副標題
+.brandWrap{
+    .page-title {
+        h4.page-title__title {
+            padding: unset;
+            color: transparent;
+            display: block;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100%;
+            height: 30px;
+        }
+        h4.page-title__title::after {
+            display: none;
+        }
+        //768以下區域品牌用的窄尺寸標題圖
+        h4.page-title__title.brand {
+            background-image: url('/images/donghaian_tite_sm.png');
+            height: 60px;
+        }
+    }
+}
+//768以上區域品牌使用的寬尺寸標題圖
+@media (min-width:@md) {
+    //768以上區域品牌用的窄尺寸標題圖
+    h4.page-title__title.brand {
+        background-image: url('/images/donghaian_tite_sm.png');
+        height: 30px;
+    }
+}
+//區域品牌
+.brandWrap {
+    width: 100%;
+    height: 550px;
+    background-color: #e8e8e8;
+    background-image: url('/images/donghaian_bg.png');
+    background-size: cover;
+    padding: 70px 0;
+    background-position: 25rem 4rem;
+}
+//768viewport以上版面調整
+@media (min-width:@md) {
+    .brandWrap {
 
+    }
+}
+//11精選
+//768viewport以下排版
+section.selection{
+    position: relative;
+    width: 100%;
+    height: 45vh;
+    background-image: url('/images/11selecg_bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 70% 0;
+    .text11 img{
+        position: absolute;
+        width: 11rem;
+        top: 5rem;
+        left: 5rem;
+    }
+    .road_text img{
+        position: absolute;
+        width: 16rem;
+        top: 8rem;
+    }
+}
+
+@media (min-width:@md) {
+    section.selection {
+        position: relative;
+        width: 100%;
+        height: 45vh;
+        background-image: url('/images/11selecg_bg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 70% 0;
+        .text11 img {
+            position: absolute;
+            width: 11rem;
+            top: 11rem;
+            left: 5rem;
+        }
+        .road_text img {
+            position: absolute;
+            width: 16rem;
+            top: 14rem;
+        }
+    }
+}
