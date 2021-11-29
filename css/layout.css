@@ -223,3 +223,79 @@ nav.navbar .navbar-nav > li > .nav-link:after {
     height: 70px;
   }
 }
+.indexcontent {
+  width: 100%;
+}
+.brandWrap .page-title h4.page-title__title {
+  padding: unset;
+  color: transparent;
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 30px;
+}
+.brandWrap .page-title h4.page-title__title::after {
+  display: none;
+}
+.brandWrap .page-title h4.page-title__title.brand {
+  background-image: url('/images/donghaian_tite_sm.png');
+  height: 60px;
+}
+@media (min-width: 768px) {
+  h4.page-title__title.brand {
+    background-image: url('/images/donghaian_tite_sm.png');
+    height: 30px;
+  }
+}
+.brandWrap {
+  width: 100%;
+  height: 550px;
+  background-color: #e8e8e8;
+  background-image: url('/images/donghaian_bg.png');
+  background-size: cover;
+  padding: 70px 0;
+  background-position: 25rem 4rem;
+}
+section.selection {
+  position: relative;
+  width: 100%;
+  height: 45vh;
+  background-image: url('/images/11selecg_bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 70% 0;
+}
+section.selection .text11 img {
+  position: absolute;
+  width: 11rem;
+  top: 5rem;
+  left: 5rem;
+}
+section.selection .road_text img {
+  position: absolute;
+  width: 16rem;
+  top: 8rem;
+}
+@media (min-width: 768px) {
+  section.selection {
+    position: relative;
+    width: 100%;
+    height: 45vh;
+    background-image: url('/images/11selecg_bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 70% 0;
+  }
+  section.selection .text11 img {
+    position: absolute;
+    width: 11rem;
+    top: 11rem;
+    left: 5rem;
+  }
+  section.selection .road_text img {
+    position: absolute;
+    width: 16rem;
+    top: 14rem;
+  }
+}
